@@ -1,0 +1,130 @@
+
+intro:
+    node modules are functions you can import and have access to without any further installation.
+    You can create your own modules and easily include them in your applications.
+    We created a custom module "testModule.js" that was imported and used here in this file.
+
+The built-in HTTP module:
+    Node.js has a built in module called 'HTTP' which allows node.js to transfer data over http protocol.
+    to include this module, use the 'require()' method.
+
+Node.js as a web server:
+    the HTTP module can create an HTTP server that listens to server ports and gives a response back to 
+    the client. use the 'createServer()' method to create an HTTP server.
+    => http.createServer(function(req, res) { ... })
+    the function passed into the 'createServer()' method will be executed when someone tries to access
+    the computer on port 5000.
+
+Add an HTTP header:
+    If the response from the HTTP server is supposed to be displayed as HTML, you should include an HTTP
+    header with the correct Content-Type.
+    => res.writeHead(200, {'Content-Type': 'text/html'});
+    The first argument is the status code and the second is the response header.
+
+Parsing a URL:
+    There's a built-in module that will easily split the url into readable parts.
+    => const url = require('url')
+    => const i = url.parse(req.url, true).query
+
+Node.js as a file server:
+    Node.js has a file system module that allows you to work within the file system on the computer: 'fs'.
+    => const fs = require('fs')
+    you can perform CRUD operations with this module, which is common.
+
+Read files:
+    The 'fs.readFile()' method is used to read files on your computer.
+    Assuming we have an HTML file to use, we can read the file and return the content.
+    => fs.readFile('demoFile.html', function(err, data) { ... }).
+
+Create files:
+    => fs.appendFile()
+    => fs.open()
+    => fs.writeFile()
+    The fs.appendFile() method appends specified content to a file, if the file does not exist, it
+    creates one for you.
+
+Reading files:
+    => fs.appendFile()
+    Creates a new file if one doesn't exist, or updates the existing file,
+    check demoText.txt.
+
+    => fs.open()
+    takes a flag as a second argument, if the flag is "w" for "writing", the
+    specified file is opened for writing. If the file does not exist, an empty
+    file is created.
+
+    => fs.writeFile()
+    this method replaces the specified file and content if it exists. If it does exist, a new file, 
+    containing the specified content, will be created.
+
+Deleting files:
+    => fs.unlink()
+    To delete a file, use this method.
+
+Renaming files:
+    => fs.rename()
+    To rename a file, use this method.
+
+TThe URL module:
+    => const url = require('url')
+    The URL module splits up the URL into readable parts.
+    parse an address with the 'parse()' method, and it will return a URL object with each part of the address
+    as properties
+    => url.parse()
+
+Node.js file server:
+    Now we know how to parse the query string, and in the previous chapter we learned how to make Node.js
+    behave as a file server. Now we can combine them both and serve the file requested by the client.
+
+    Using the Summer.html & winter.html files, you can create a node.js file that that opens the requested
+    file and returns the content to the client. If anything goes wrong, you can throw a 404 error.
+
+Node.js NPM:
+    NPM is a package manager for packages (modules), npmjs.com hosts thousands of free packages to download and use.
+    NPM is installed on your computer when you use install Node.
+
+    What is a package?
+    A package contains all the files needed for the a module. Modules are javascript libraries you can include into 
+    your project. Any packages you install automatically get sent to your node_modules folder.
+
+    You can use a package (module) by requiring or importing it
+    try this out using the 'upper-case' module and creating a node file that will output the contents in uppercase, per
+    the module.
+    => const uc = require('upper-case')
+    => uc.upperCase()
+
+Node.js events:
+    every action on a computer is an event, like when a connection is made or a file is opened.
+    Objects in Node can fire events, like the readStream object fires when opening and closing a file.
+    => fs.readStream('./example.html')
+
+Events module:
+    Node has a built in events module, 'Events', where you can create-, fire-, and listen for- your own events.
+    To include the built-in events module, use the 'require()' method. In addition, all event properties and methods are an 
+    instance of an EventEmitter object. To be able to access these properties and methods, create an EventEmitter object.
+    => const events = require('events');
+    => const eventEmitter = new events.EventEmitter()
+
+Node upload files:
+    The 'Formidable' Module is very good for working with file uploads. Which can be downloaded and installed
+    via NPM.
+    => npm install Formidable
+    => const formidable = require('formidable')
+
+Upload files:
+    (1) create a form
+        create a node file that produces an HTML form
+    (2) parse the uploaded file
+        include the Formidable module to be able to parse the uploaded file once it reaches the server.
+        When the file is uploaded and parsed, it gets placed in a temorary folder on your computer.
+    (3) Save the file
+        When the file is successfully uploaded to the server, it is placed ona  temporary folder.
+        The path to this directory can be found in the 'files' object, passed as the third argument in 
+        the 'parse()' method's callback function.
+        To move the file to the folder of your choice, use the File System module, and rename the file.
+        (adding in the new path to the new path name)
+
+Nodemailer module:
+    This module makes it easy to send mail from your computer. It can be downloaded and installed via NPM.
+    => const nodeMailer = require('nodemailer')
+
