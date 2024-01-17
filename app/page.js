@@ -109,7 +109,134 @@ export default function Home() {
           
         </a>
         <a href='/test'> test page </a>
+        <br/> 
+
+
+
       </div>
+      <div>
+          <h2> SQL basics </h2>
+          <p>To build a website that shows data from a database, you will need:</p>
+          <ul>
+            <li>A relational database management program (i.e. SQL Server, MySQL, PostgreSQL, etc.)</li>
+            <li>To use a szerver-side scripting langauge like PHP, ASP, or NODE</li>
+            <li>To use SQL to retrieve the data you want</li>
+            <li>Using HTML/CSS to style the front end</li>
+          </ul>
+          <br/>
+
+          <p>Data in RDBMS (relational database management system)
+          The data stored in RDBMS is stored in database objects called "tables", which is a collection of related data entries and
+          it consits of columns and rows.</p>
+          <code>SELECT * FROM Example;</code>
+          <p>selects everything from the "Example" table.</p>
+          <p>Every entry is broken up into "fields".</p>
+          <p>A record, or "row", is each individual entry.</p>   
+
+          <br/>
+          <h2> SQL statements </h2>  
+          <p>SQL statements consists of keywords that are easy to understand.</p>  
+          <p>This statement returns all records from a table named "Example".</p>
+          <code>SELECT * FROM Example;</code>
+
+          <br/>
+          <h2> Database tables </h2>  
+          <p>Databases often contain one or more tables and contains rows of data.</p>  
+          <p>Also, SQL keywords a not case sensitive, so "select" is the same as "SELECT".</p>
+          <p>As a rule, using a semi-colon to end SQL statements is preferred, as some database systems require it.</p>
+
+          <br/>
+          <h2> Important SQL commands </h2>  
+          <ul>
+            <li><code>SELECT</code> - extracts data from a database </li>
+            <li><code>UPDATE</code> - updates data from a database </li>
+            <li><code>DELETE</code> - deletes data from a database </li>
+            <li><code>INSERT INTO</code> - inserts new data into a database </li>
+            <li><code>CREATE DATABASE</code> - creates a new database </li>
+            <li><code>ALTER DATABASE</code> - modifies a database </li>
+            <li><code>CREATE TABLE</code> - creates a new table </li>
+            <li><code>ALTER TABLE</code> - modifies a table </li>
+            <li><code>DROP TABLE</code> - deletes a table </li>
+            <li><code>CREATE INDEX</code> - creates an index (search key) </li>
+            <li><code>DROP INDEX</code> - deletes an index </li>
+          </ul>
+
+          <br/>
+          <h2> SQL SELECT statement </h2>  
+          <p> the SELECT statement selects data from a database</p> 
+          <code> SELECT User, City FROM Example;</code> 
+          <p> Selects column1, column2, ... from the Example table </p>
+
+          <br/>
+          <h2> SQL SELECT all columns </h2>  
+          <code> SELECT * FROM Example;</code> 
+
+          <br/>
+          <h2> SQL SELECT DISTINCT statement </h2>  
+          <p> Selects all the different users from the "Example" table</p> 
+          <p> Sometimes a column contains many duplicate values; and sometimes you'll only want to 
+          list different (distinct) values.</p> 
+          <code> SELECT DISTINCT User FROM Example;</code> 
+          <p> Omitting the DISTINCT value from the SQL statement returns the value from all records of the table.</p>
+          <code> SELECT DISTINCT User FROM Example;</code> 
+
+          <br/>
+          <h2> COUNT DISTINCT </h2>  
+          <p> By using the DISTINCT keyword in a function called COUNT, we can return the number of different users.</p> 
+          <code> SELECT COUNT(DISTINCT Users) FROM Example; </code> 
+
+          <br/>
+          <h2> SQL WHERE clause </h2>  
+          <p> SQL WHERE is used to filter rows.</p> 
+          <p> It is used to extract only the matching conditions. </p> 
+          <code> SELECT * FROM Example WHERE User='John'; </code> 
+          <p>Syntax</p>
+          <code> SELECT <i>column 1, column 2, ... </i> FROM <i> table_name </i> WHERE <i>condition</i>;</code>
+        
+          <br/>
+          <h2> Text fields vs. Numeric fields </h2>  
+          <p> SQL requires single quotes around text values (most database systems will allow double quotes).
+            However, numeric fields should not be enclosed in quotes. </p>
+          <code> SELECT * FROM Example WHERE UserId=1; </code> 
+
+          <br/>
+          <h2> Operators in the WHERE clause </h2>  
+          <p> SQL requires single quotes around text values (most database systems will allow double quotes).
+            However, numeric fields should not be enclosed in quotes. </p>
+          <code> SELECT * FROM Example WHERE UserId {'>'} 30; </code> 
+
+          <br/>
+          <h2> Operators </h2>  
+          <ul>
+            <li><code>=</code> Equal </li>
+            <li><code>{'>'}</code> Greater than </li>
+            <li><code>{'<'}</code> Less than </li>
+            <li><code>{'>='}</code> Greater than or equal to </li>
+            <li><code>{'<='}</code> Less than or equal to </li>
+            <li><code>{'<>'}</code> Not equal to, in some versions of SQL can be written as <code>!=</code> </li>
+            <li><code>{'>'}</code> Creates a new table </li>
+            <li><code>BETWEEN</code> Between a certain range </li>
+            <li><code>LIKE</code> Search for a pattern </li>
+            <li><code>IN</code> To specify multiple possible values for a column </li>
+          </ul>
+
+          <br/>
+          <h2> SQL ORDER BY </h2>  
+          <p> The ORDER BY keyword in ascending or descending order. </p>
+          <code> SELECT * FROM Example ORDER BY UserId; </code> 
+          <p>Syntax</p>
+          <code> SELECT <i>column 1, column 2, ... </i> FROM <i> table_name </i> ORDER BY <i>column 1, column 2, ... </i>ASC|DESC;</code>
+          <p>To sort records in descending order, use DESC</p>
+          <code> SELECT * FROM Products ORDER BY Price DESC</code>
+
+
+
+
+
+
+
+
+        </div>
     </main>
   )
 }
